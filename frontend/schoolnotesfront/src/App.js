@@ -19,12 +19,7 @@ import NotFound1 from './components/NotFound';
 import LoginContext from './context/LoginContext';
 import axios from "axios";
 import './App.css';
-// import AllExamples from './components/AllExamples';
-// import DataTableA from './components/DataTableA';
-// import DataTableB from './components/DataTableB';
-// import FetchExample1 from './components/FetchExample1';
-// import DeleteConfirmationExample1main from './components/DeleteConfirmationExample1main';
-// import DataTable from "react-data-table-component";
+
 
 function App() {
 
