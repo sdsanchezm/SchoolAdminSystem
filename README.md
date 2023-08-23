@@ -1,17 +1,17 @@
 # Project Documentation
 
+![image](https://img.shields.io/badge/React-Hooks-green?labelColor=%23296D98)
 ![image](https://img.shields.io/badge/Python-Django-green)
 ![image](https://img.shields.io/badge/Django-Rest_Framework-green?labelColor=%23e05a00)
-![image](https://img.shields.io/badge/React-Hooks-green?labelColor=%23296D98)
 
 
 - Name: **SchoolSystemAdmin**
-- Problem: solve the complexity of handling information about grades in schools in some regions where there is no access to software tools (specifically in Latin America).
+- Problem: solve the complexity of handling information about grades in schools in some regions of developing where there is no access to software tools.
 
-- <img src="z1.jpg" width="600">
-- <img src="z2.jpg" width="600">
-- <img src="z3.jpg" width="600">
-- <img src="z4.jpg" width="600">
+- <img src="./assets/z2.jpg" width="600">
+- <img src="./assets/z3.jpg" width="600">
+<!-- - <img src="./assets/z1.jpg" width="600"> -->
+<!-- - <img src="./assets/z4.jpg" width="600"> -->
 
 
 ## Distinctiveness and complexity
@@ -23,7 +23,8 @@
 
 2. The design starts with the potential entities involved and their hierarchy, such as Students, Teachers, Grades, a Subject, a Program, and an Institution, so an Entity–Relationship model diagram is included to record the relationship between them. 
 
-    - ![ER Diagram](app2_school.png "Entity Relationship Diagram")
+    - ![ER Diagram](./assets/app2_school.png "Entity Relationship Diagram")
+    - ![Flow Chart Diagram](./assets/app2_school2.png "App Flow Chart")
 
 3. From 2., the relations are:
     - Institution is the main entity and will contain multiple Programs. 
@@ -58,197 +59,11 @@
 - Compatible with MySQL, MariaDB and SQLite databases, since data is structured.
 
 
-## Folders and Folders description
-
-- The project contains 2 main folders: `backend`, and `frontend` explained as follows
-
-### Frontend folder
-
-- Folder `schoolnotesfront/`
-    - Folder `src/`
-        - Folder ` components/` this folder contains the main components of the application.
-            - File `Home.js` contains the screen that is showed after login in.
-            - File `Login.js` contains the component top login into the application.
-            - File `Logout.js` contains the component top logout application.
-            - File `NavigationHome.js` contains the Navigation bar.
-            - File `Dashboard1.jsx` contains the components of the dashboard
-            - File `Footer1.jsx` contains the Footer component.
-            - File `Notfound.jsx` contains the NotFound component to render each time a resource is trying to be accessed.
-            - File `DeleteValidationModal.jsx`
-            - File `ToastNotification.jsx`
-            - Folder `institution/` contains components specifically for the institution.
-                - File `InstitutionDeleteModal.jsx` Modal Component to confirm deletion of an Institution
-                - File `InstitutionEditModal.jsx` Modal Component to handle Editing an Institution.
-                - File `InstitutionList.jsx` React Component to handle the display of list of institutions.
-                - File `InstitutionNewModal.jsx` Modal Component to handles creation of a new Institution.
-                - File `InstitutionViewModal.js` Modal Component to handle view of an institution.
-            - Folder `misc/` contains the component with the text for the Footer Component.
-                - File `GeneralMisc.js` Component that returns the text that goes into the Footer.
-            - Folder `program/` contains subcomponents to render info related to the Program.
-                - File `ProgramList.jsx` React component to handle the list of Programs.
-                - File `ProgramNewModal.jsx` Modal Component to handle the creation of a new Program.
-                - File `ProgramProfile.jsx` Modal Component to handle the Program profile, includes links to subjects assigned to the actual program.
-                - File `ProgramViewModal.js` Modal Component to handle the preview of the Program.
-            - Folder `student/` contains components specifically for the institution view.
-                - File `StudentProfile.jsx` handles the Student profile component.
-                - File `StudentList.jsx` React component to handle the list of institutions.
-                - File `StudentViewModal.jsx` handles the View information of a student.
-                - File `StudentEditModal.jsx` Modal Component to Edit the Student information.
-                - File `StudentGraph.jsx` is a Component that handles the Graph of the grades for students.
-                - File `StudentNewModal.jsx` handles the Creation of a Student.
-                - File `StudentRegister.jsx` handles the Registration of a student into a subject.
-                - File `StudentGradesModal2.jsx` is a component to modify the grades of the student.
-                - File `gradesOptions.json` contains the list of possible available values to be selected for grading a student.
-            - Folder `subject/` contains components specifically for the Subject.
-                - File `SubjectList.jsx` contains the logic and components to handle the List of subjects
-                - File `SubjectViewModal.jsx` contains the modal component to view and handle the preview of a subject.
-                - File `SubjectEditModal.jsx` contains the modal for editing a Subject.
-                - File `RegisterStudentInSubjectModal.jsx` contains the component that allows a student to register for a Subject
-                - File `SubjectNewModal.jsx` is the component to create a new Subject.
-                - File `SubjectProfile.jsx` is the component to display the Subject Profile. 
-            - Folder `teacher/` contains components specifically for the institution view.
-                - File `TeacherList.jsx` contains the Component to handle the list of Teachers.
-                - File `TeacherNewModal.jsx` contains the Modal Component to handle the creation of a Teacher.
-                - File `TeacherViewModal.js` contains the Modal Component to handle the preview of a Teacher.
-        - Folder ` context/` contains the context for the use of the useContext hook
-            - File `LoginContext.js` Contains the context for some states in the application
-        - Folder ` helpers/` contains functions used across components to make PUT, POST, GET requests to the aPI
-            - File `GetData1.js` Function that assist multiple components to call the API using the GET http method
-            - File `PostData1.js` Function that assist multiple components to call the API using the POST http method
-            - File `PutData1.j` Function that assist multiple components to call the API using the PUT http method
-        - Folder ` interceptors/` contains the axios interceptor, sends the token each time a request is made.
-            - File `axios.js` contains a function that sends the token each time a request is made and each time axios is used.
-        - File `App.js` is the main component of the application
-    - Folder `public/` 
-        - `index.html` main root folder to include the main component called "App"
-    - File `package.json`, automatically created by node.js to record packages required by the project
-    - File `package-lock.json`, automatically created by node.js
-
-### Backend folder
-
-- Folder `schoolapp/`
-    - Folder `serializersall`
-        - File `AcademicProgramSerializer.py` Contains the class for the serialization of the AcademicProgram View. 
-        - File `GradeSerializer.py` Contains the class for the serialization of the Grade View and its related calls.
-        - File `InstitutionSerializer.py` Contains the class for the serialization of the Institution View. 
-        - File `SubjectSerializer.py` Contains the class for the serialization of the Subject View. 
-        - File `TeacherSerializer.py` Contains the class for the serialization of the Teacher View. 
-    - Folder `viewsall`
-        - File `AcademicProgram_view.py` Contains the class of the Academic Program View called in the urls.py file.
-        - File `Dashboard_view.py` Contains the classes of the Dashboard View called in the urls.py file.
-        - File `Grade_view.py` Contains the classes of the Dashboard View called in the urls.py file.
-        - File `Institution_view.py`
-        - File `Subject_view.py`
-        - File `Teacher_view.py`
-    - File `views.py` contains all the views for the Students
-    - File `urls.py` handles 
-    - File `serializers.py` handles 
-    - File `models.py` handles 
-    - File `apps.py` handles 
-- Folder `schoolsystem/` regular django folder automatically created by the folder that contains the main config of the project
-
-
-
-
 ---
 
 ## API Documentation
 
 - Available endpoints and their respective HTTP methods for the API overview, as follows:
-
-
-### Home
-
-- **Endpoint:** `home/`
-- **Method:** GET
-- **Description:** This endpoint handles the login and password information.
-
-- **Endpoint:** `home/`
-- **Method:** POST
-- **Description:** This endpoint handles the login and password information at the login time.
-
-### Logout
-
-- **Endpoint:** `logout/`
-- **Method:** POST
-- **Description:** This endpoint handles user logout.
-
-### Institution
-
-- **Endpoint:** `institution/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all institutions.
-
-- **Endpoint:** `institution/<integer>`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about a specific institution identified by an id.
-
-### Academic Program
-
-- **Endpoint:** `academicprogram/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all academic programs.
-
-### Subject
-
-- **Endpoint:** `subject/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all subjects.
-
-### Program Profile
-
-- **Endpoint:** `programprofile/`
-- **Method:** GET
-- **Description:** This endpoint provides program profile information.
-
-### Student
-
-- **Endpoint:** `student/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all students.
-
-- **Endpoint:** `studentupdate/`
-- **Method:** POST
-- **Description:** This endpoint updates student information.
-
-- **Endpoint:** `studentprofile/`
-- **Method:** GET
-- **Description:** This endpoint provides student specific information, including institution, academic program, subjects (including name, and number), and grades.
-    - 
-    ```json
-        [
-            {
-                "id": 1,
-                "student_firstname": "Rex",
-                "student_lastname": "Sanc",
-                "student_number": 4443,
-                "student_institution": 1,
-                "student_academicprogram": 2,
-                "student_subjects": [
-                    {
-                        "id": 1,
-                        "subject_name": "Algos-I",
-                        "subject_number": 224,
-                        "subject_grades": [
-                            {
-                                "id": 1,
-                                "grade_e1": 4.0,
-                                "grade_e2": 0.6,
-                                "grade_e3": 0.0,
-                                "grade_ef": 3.2
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    ```
-
-### Teacher
-
-- **Endpoint:** `teacher/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about teachers.
 
 ### Student by Subject
 
@@ -304,6 +119,83 @@
         ]
     ```
 
+### Student
+
+- **Endpoint:** `student/`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about all students.
+
+- **Endpoint:** `studentupdate/`
+- **Method:** POST
+- **Description:** This endpoint updates student information.
+
+- **Endpoint:** `studentprofile/`
+- **Method:** GET
+- **Description:** This endpoint provides student specific information, including institution, academic program, subjects (including name, and number), and grades.
+    - 
+    ```json
+        [
+            {
+                "id": 1,
+                "student_firstname": "Rex",
+                "student_lastname": "Sanc",
+                "student_number": 4443,
+                "student_institution": 1,
+                "student_academicprogram": 2,
+                "student_subjects": [
+                    {
+                        "id": 1,
+                        "subject_name": "Algos-I",
+                        "subject_number": 224,
+                        "subject_grades": [
+                            {
+                                "id": 1,
+                                "grade_e1": 4.0,
+                                "grade_e2": 0.6,
+                                "grade_e3": 0.0,
+                                "grade_ef": 3.2
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    ```
+
+### Institution
+
+- **Endpoint:** `institution/`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about all institutions.
+
+- **Endpoint:** `institution/<integer>`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about a specific institution identified by an id.
+
+### Academic Program
+
+- **Endpoint:** `academicprogram/`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about all academic programs.
+
+### Subject
+
+- **Endpoint:** `subject/`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about all subjects.
+
+### Program Profile
+
+- **Endpoint:** `programprofile/`
+- **Method:** GET
+- **Description:** This endpoint provides program profile information.
+
+### Teacher
+
+- **Endpoint:** `teacher/`
+- **Method:** GET
+- **Description:** This endpoint retrieves information about teachers.
+
 ### Grade
 
 - **Endpoint:** `grade/<integer>`
@@ -315,6 +207,22 @@
 - **Endpoint:** `dashboard/`
 - **Method:** GET
 - **Description:** This endpoint provides summary of the total number of entities.
+
+### Logout
+
+- **Endpoint:** `logout/`
+- **Method:** POST
+- **Description:** This endpoint handles user logout.
+
+### Home
+
+- **Endpoint:** `home/`
+- **Method:** GET
+- **Description:** This endpoint handles the login and password information.
+
+- **Endpoint:** `home/`
+- **Method:** POST
+- **Description:** This endpoint handles the login and password information at the login time.
 
 
 ## Annotations and Resources
