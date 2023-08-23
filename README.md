@@ -3,8 +3,11 @@
 ![image](https://img.shields.io/badge/React-Hooks-green?labelColor=%23296D98)
 ![image](https://img.shields.io/badge/Python-Django-green)
 ![image](https://img.shields.io/badge/Django-Rest_Framework-green?labelColor=%23e05a00)
+![image](https://img.shields.io/badge/CSS-Bootstrap-Purple?labelColor=%23C83DC2)
 
+---
 
+- Demo Video [https://www.youtube.com/watch?v=ynjTUIMo-tc](https://www.youtube.com/watch?v=ynjTUIMo-tc)
 - Name: **SchoolSystemAdmin**
 - Problem: solve the complexity of handling information about grades in schools in some regions of developing where there is no access to software tools.
 
@@ -68,19 +71,73 @@
 ### Student by Subject
 
 - **Endpoint:** `studentbysubject/`
-- **Method:** GET
-- **Description:** This endpoint retrieves students based on subjects.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves students based on subjects.
 
 - **Endpoint:** `studentbysubject/`
-- **Method:** GET
-- **Description:** This endpoint provides additional information about students based on subjects.
-    -
-    ```json
-        [
-            {
-                "subject_id": 1,
-                "subject_name": "Algos-I",
-                "students": [
+    - **Method:** GET
+    - **Description:** This endpoint provides additional information about students based on subjects.
+    - 
+        ```json
+            [
+                {
+                    "subject_id": 1,
+                    "subject_name": "Algos-I",
+                    "students": [
+                        {
+                            "id": 1,
+                            "student_firstname": "Rex",
+                            "student_lastname": "Sanc",
+                            "student_number": 4443,
+                            "student_institution": 1,
+                            "student_academicprogram": 2,
+                            "student_subject": [
+                                1
+                            ]
+                        }
+                    ]
+                }
+            ]
+        ```
+
+### Student by Program
+
+- **Endpoint:** `studentbyprogram/`
+    - **Method:** GET
+    - **Description:** This endpoint retrieves students based on academic programs.
+        - code:
+        ```json
+            [
+                {
+                    "id": 1,
+                    "student_firstname": "Rex",
+                    "student_lastname": "Sanc",
+                    "student_number": 4443,
+                    "student_institution": 1,
+                    "student_academicprogram": 2,
+                    "student_subject": [
+                        1
+                    ]
+                }
+            ]
+        ```
+
+### Student
+
+- **Endpoint:** `student/`
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about all students.
+
+- **Endpoint:** `studentupdate/`
+    - **Method:** POST
+    - **Description:** This endpoint updates student information.
+
+- **Endpoint:** `studentprofile/` 
+    - **Method:** GET 
+    - **Description:** This endpoint provides student specific information, including institution, academic program, subjects (including name, and number), and grades. 
+        - code:
+            ```json
+                [
                     {
                         "id": 1,
                         "student_firstname": "Rex",
@@ -88,141 +145,87 @@
                         "student_number": 4443,
                         "student_institution": 1,
                         "student_academicprogram": 2,
-                        "student_subject": [
-                            1
-                        ]
-                    }
-                ]
-            }
-        ]
-    ```
-
-### Student by Program
-
-- **Endpoint:** `studentbyprogram/`
-- **Method:** GET
-- **Description:** This endpoint retrieves students based on academic programs.
-    - 
-    ```json
-        [
-            {
-                "id": 1,
-                "student_firstname": "Rex",
-                "student_lastname": "Sanc",
-                "student_number": 4443,
-                "student_institution": 1,
-                "student_academicprogram": 2,
-                "student_subject": [
-                    1
-                ]
-            }
-        ]
-    ```
-
-### Student
-
-- **Endpoint:** `student/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all students.
-
-- **Endpoint:** `studentupdate/`
-- **Method:** POST
-- **Description:** This endpoint updates student information.
-
-- **Endpoint:** `studentprofile/`
-- **Method:** GET
-- **Description:** This endpoint provides student specific information, including institution, academic program, subjects (including name, and number), and grades.
-    - 
-    ```json
-        [
-            {
-                "id": 1,
-                "student_firstname": "Rex",
-                "student_lastname": "Sanc",
-                "student_number": 4443,
-                "student_institution": 1,
-                "student_academicprogram": 2,
-                "student_subjects": [
-                    {
-                        "id": 1,
-                        "subject_name": "Algos-I",
-                        "subject_number": 224,
-                        "subject_grades": [
+                        "student_subjects": [
                             {
                                 "id": 1,
-                                "grade_e1": 4.0,
-                                "grade_e2": 0.6,
-                                "grade_e3": 0.0,
-                                "grade_ef": 3.2
+                                "subject_name": "Algos-I",
+                                "subject_number": 224,
+                                "subject_grades": [
+                                    {
+                                        "id": 1,
+                                        "grade_e1": 4.0,
+                                        "grade_e2": 0.6,
+                                        "grade_e3": 0.0,
+                                        "grade_ef": 3.2
+                                    }
+                                ]
                             }
                         ]
                     }
                 ]
-            }
-        ]
-    ```
+            ```
 
 ### Institution
 
 - **Endpoint:** `institution/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all institutions.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about all institutions.
 
 - **Endpoint:** `institution/<integer>`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about a specific institution identified by an id.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about a specific institution identified by an id.
 
 ### Academic Program
 
 - **Endpoint:** `academicprogram/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all academic programs.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about all academic programs.
 
 ### Subject
 
 - **Endpoint:** `subject/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about all subjects.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about all subjects.
 
 ### Program Profile
 
 - **Endpoint:** `programprofile/`
-- **Method:** GET
-- **Description:** This endpoint provides program profile information.
+    - **Method:** GET
+    - **Description:** This endpoint provides program profile information.
 
 ### Teacher
 
 - **Endpoint:** `teacher/`
-- **Method:** GET
-- **Description:** This endpoint retrieves information about teachers.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves information about teachers.
 
 ### Grade
 
 - **Endpoint:** `grade/<integer>`
-- **Method:** GET
-- **Description:** This endpoint retrieves grade information for a specific id.
+    - **Method:** GET
+    - **Description:** This endpoint retrieves grade information for a specific id.
 
 ### Dashboard
 
 - **Endpoint:** `dashboard/`
-- **Method:** GET
-- **Description:** This endpoint provides summary of the total number of entities.
+    - **Method:** GET
+    - **Description:** This endpoint provides summary of the total number of entities.
 
 ### Logout
 
 - **Endpoint:** `logout/`
-- **Method:** POST
-- **Description:** This endpoint handles user logout.
+    - **Method:** POST
+    - **Description:** This endpoint handles user logout.
 
 ### Home
 
 - **Endpoint:** `home/`
-- **Method:** GET
-- **Description:** This endpoint handles the login and password information.
+    - **Method:** GET
+    - **Description:** This endpoint handles the login and password information.
 
 - **Endpoint:** `home/`
-- **Method:** POST
-- **Description:** This endpoint handles the login and password information at the login time.
+    - **Method:** POST
+    - **Description:** This endpoint handles the login and password information at the login time.
 
 
 ## Annotations and Resources
